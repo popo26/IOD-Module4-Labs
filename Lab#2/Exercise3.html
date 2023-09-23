@@ -1,0 +1,83 @@
+<!-- Exercise 3 - the artist’s portfolio:
+Generate multiple templates and populate the page
+dynamically. Create an artist profile card and generate
+cards representing the items in an artist's portfolio. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+        color:white;
+        text-align: center;
+      }
+      .card {
+        padding: 30px;
+        border: 1px solid red;
+        margin:10px;
+      }
+      .card-title {
+        font-weight: 600;
+        font-size: 3em;
+        padding: 0 0 10px 0;
+        color:red;
+      }
+      .card-text {
+        font-weight: 400;
+        font-size: 2em;
+      }
+
+      .card-url {
+        display: block;
+        margin-top:10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <template id="card-template">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-text"></div>
+          <a class="card-url" target="_blank"></a>
+        </div>
+      </div>
+    </template>
+    <div id="card-list"></div>
+    
+    <script>
+    const artist={
+      name:"Van Gogh" ,
+      portfolio: [
+                {
+                  title:"portrait" ,
+                  url:"https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"
+                },
+                {
+                  title:"sky",
+                  url:"https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg" 
+                },
+                ]
+              }
+
+      function addCard(name, title, url) {
+        // clone the template
+        const template = document.getElementById("card-template").content.cloneNode(true);
+        template.querySelector(".card-title").innerText = name;
+        template.querySelector(".card-text").innerText = title;
+        template.querySelector(".card-url").innerText = url;
+        template.querySelector(".card-url").href = url;
+        document.querySelector("#card-list").appendChild(template);
+      }
+      
+
+      artist.portfolio.forEach((piece) => {
+        addCard(artist.name, piece.title, piece.url);
+      })
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Breaking News</h1>
+    <form method="post" class="form">
+        <input id="title" type="text" name="title" placeholder="Title"/>
+        <input id="content" type="text" name="content" placeholder="Content"/>
+        <button>Submit</button>
+    </form>
+    <template id="news-template">
+      <div class="news">
+        <div class="news-body">
+          <div class="news-title"></div>
+          <div class="news-content"></div>
+        </div>
+      </div>
+    </template>
+    <div id="news-list"></div>
+    <script src="./index.js"></script>
+  </body>
+</html>
