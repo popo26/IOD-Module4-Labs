@@ -7,20 +7,22 @@ moment().format();
 const now = moment();
 const bday = moment("2016-02-14 23:38");
 
+// //Ver1
 // milsec > sec > min > hours > days
 // daysLived = Math.floor((now - bday) / 1000 / 60 / 60 / 24)
 // console.log(`Days Daughter A lived: ${daysLived} days.`);
 
+// //Ver2
 daysLived = now.diff(bday, "days");
 console.log(`Days Daughter A lived: ${daysLived} days.`);
 
 // 2. Display the number of years, months,and days between your birthdate and current date.
 // Example: 24 years, 8 months, and 26 days
 
-// Ver1
+// //Ver1
 //console.log(`${Math.floor(daysLived / 365)} years, ${Math.floor((daysLived % 365) / 30)} months, ${(daysLived % 365) % 30} days`);
 
-// // Ver2 With diff() and add()
+// //Ver2 With diff() and add()
 // let years = now.diff(bday, "year");
 // bday.add(years, "years");
 // let months = now.diff(bday, "months");
@@ -30,9 +32,9 @@ console.log(`Days Daughter A lived: ${daysLived} days.`);
 
 // Ver3 With duration()
 var diffDuration = moment.duration(now.diff(bday));
-const years = diffDuration.years(); // 8 years
-const months = diffDuration.months(); // 5 months
-const days = diffDuration.days(); // 2 days
+const years = diffDuration.years(); 
+const months = diffDuration.months();
+const days = diffDuration.days(); 
 console.log(years + " years " + months + " months " + days + " days");
 
 // 3. Given two dates, display the date closest to the current date
@@ -54,7 +56,7 @@ closetDate(now, day1, day2);
 
 // 4. Given two dates, display whether the first date is before or after the second date
 
-// Ver1 Custom Function
+// //Ver1 Custom Function
 // function orderOfDate(date1, date2) {
 //     date1.diff(date2) === 0
 //       ? console.log("Tie")
@@ -64,7 +66,7 @@ closetDate(now, day1, day2);
 //   }
 // orderOfDate(day1, day2)
 
-//Ver2 With isAfter() and isSameOrBefore()
+// //Ver2 With isAfter() and isSameOrBefore()
 moment(day1).isAfter(day2)
   ? console.log(
       `${day1.format("dddd, MMMM Do YYYY")} is AFTER ${day2.format(

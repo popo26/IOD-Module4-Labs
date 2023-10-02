@@ -2,7 +2,6 @@
 so that you can pass the content for the card
 dynamically. -->
 
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -37,16 +36,17 @@ dynamically. -->
     <div id="card-list"></div>
     <button onclick="addCard()">Add Card</button>
     <script>
-      function addCard(title="My Card Title", body="lorem ipsum ble bla") {
+      function addCard(title = "My Card Title", body = "lorem ipsum ble bla") {
         // clone the template
-        const template = document.getElementById("card-template").content.cloneNode(true);
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
         // populate the template
         template.querySelector(".card-title").innerText = title;
         template.querySelector(".card-text").innerText = body;
         // include the populated template into the page
         document.querySelector("#card-list").appendChild(template);
       }
-      //addCard();
     </script>
   </body>
 </html>

@@ -25,9 +25,22 @@ axios.get("https://fakestoreapi.com/products").then((response) => {
     legend: {
       data: ["Categories"],
     },
-    xAxis: {
-      data: Array.from(nbProductsPerCategory.keys()),
-    },
+    xAxis: [
+      {
+        data: Array.from(nbProductsPerCategory.keys()),
+      },
+      {
+        position: "bottom",
+        offset: 30,
+        axisLine: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+        },
+        data: Array.from(nbProductsPerCategory.values()),
+      },
+    ],
     yAxis: {},
     series: [
       {
